@@ -3,7 +3,7 @@ Ext.define('Plani.store.Fixture', {
 	,storeId: 'Fixture'
 	,alias: 'store.fixture'
 	,autoLoad: true
-	,groupField: 'fecha'
+	// ,groupField: 'fecha'
 	,model:'Plani.model.Fixtures'
 	// ,alias: 'store.fixture'
 	,fields: [

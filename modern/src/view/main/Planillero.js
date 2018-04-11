@@ -16,8 +16,6 @@ Ext.define('Plani.view.main.Planillero', {
     ]
     ,store: [{
         type: 'goleadores'
-    },{
-       // type: 'amonestados'
     }]
     ,config: {
         tabBar: {
@@ -38,25 +36,27 @@ Ext.define('Plani.view.main.Planillero', {
 
         },
         items: [{
-                //title: '<a style=color:#5fa2dd>.</a>',
-				//glyph: 'xe600@Linearicons',
-				iconCls: 'x-fa fa-home',
+                iconCls: 'x-fa fa-home',
                 layout:'fit',
-                items:[
-                {/////////////////////////////////////////////////////////////////////////////////////////////////////////
+                items:[{
                       xtype:'formpanel'
                       ,bodyPadding:20
                       ,itemId:'cardPlanillero1'
                       ,url:'http://dario-casa.sytes.net/api/partidosfecha'
                       ,jsonSubmit:true
                       ,defaults:{
-                            margin: '30 0'
+                        defaultPhonePickerConfig : {
+                          doneButton : 'Aceptar',
+                          cancelButton : 'Cancelar'
+                        }
+                        , margin: '30 0'
                       }
                       ,items:[{
                         xtype:'selectfield'
                           ,label:'Torneo'
                           ,name:'torneo_id'
                           ,store:'Torneos'
+                          // ,autoSelect: true
                           ,displayField:'torneo_descri'
                           ,valueField:'torneo_id'
                           ,namecmb:'Categorias'
@@ -65,6 +65,7 @@ Ext.define('Plani.view.main.Planillero', {
                           }
                       },{
                         xtype:'selectfield'
+                        // ,autoSelect: true
                         ,label:'Categoria'
                         ,store: 'Categorias'
                         ,displayField:'categoria_descri'
@@ -76,6 +77,7 @@ Ext.define('Plani.view.main.Planillero', {
                         }
                       },{
                         xtype:'selectfield'
+                        // ,autoSelect: true
                         ,label:'Zona'
                         ,store: 'Zonas'
                         ,namecmb:'Fechas'
@@ -88,6 +90,7 @@ Ext.define('Plani.view.main.Planillero', {
                       },{
                         xtype: 'selectfield'
                         ,label: 'Fecha'
+                        // ,autoSelect: true
                         ,displayField:'fecha_descri'
                         ,valueField:'fecha_id'
                         ,name:'fecha_id'
@@ -105,7 +108,7 @@ Ext.define('Plani.view.main.Planillero', {
                         ,text:'Planilleros'
                         ,itemId:'btnPlanillero'
                         ,hidden:true
-                        ,style: 'background-color:#5fa2dd;height:50px;color:#FFF;font-size:20px'
+                        ,style: 'background-color:#21502a;height:50px;color:#FFF;font-size:20px'
                         ,handler: function(btn,e){
 
                             btn.up().up('tabpanel').setActiveItem(1);
@@ -125,45 +128,46 @@ Ext.define('Plani.view.main.Planillero', {
                      }]
                   }]
 
-            },
-            {
-              //title: '<a style=color:#5fa2dd>.</a>',
-				iconCls: 'x-fa fa-list',
+            },{
+				        iconCls: 'x-fa fa-list',
                 layout: 'fit',
                 items:[{
                      xtype:'grid'
                     ,title: 'Fecha'
                     ,itemId:'gridPartidoFecha'
                     ,store: 'PartidosFecha'
+                    ,cls:'gridCss'
                     //,emptyText:'No no  hay partidos en la fecha'
+                    ,defaults:{
+                      align:'center'
+                    }
                     ,columns: [
-                     { text: 'Equipo 1  ', dataIndex: 'equipo1', width:150,sortable:false},
-                     { text: 'VS',  value: 'VS', dataIndex: 'vs',width: 70,sortable:false },
-                     { text: 'Equipo 2  ', dataIndex: 'equipo2',  width:150,sortable:false }]
+                     { text: 'Equipo 1  ', dataIndex: 'equipo1', width:window.innerWidth *0.4,sortable:false,align:'center'},
+                     { text: 'VS',  value: 'VS', dataIndex: 'vs',width: window.innerWidth *0.2,sortable:false,align:'center' },
+                     { text: 'Equipo 2  ', dataIndex: 'equipo2',  width:window.innerWidth *0.4,sortable:false,align:'center' }]
                      ,listeners:{
                        select: function(gr,record,e){
                          var e1 = record.data.equipo1;
                          var e2 = record.data.equipo2;
                          var id_e1 = record.data.equipo1_id;
-                          var id_e2 = record.data.equipo2_id;
+                         var id_e2 = record.data.equipo2_id;
                          var fecha = record.data.fecha_id;
 						             var fixture_id = record.data.fixture_id;
                          //var tab = Ext.cq1('#cardPlanillero3');
                          var tab =  gr.up().up('tabpanel').down('tabpanel');
                          tab.removeAll();
-                          Ext.getStore('Goleadores').removeAll();
-                           Ext.getStore('Amonestados').removeAll();
-                           Ext.getStore('Expulsados').removeAll();
-                           Ext.getStore('Goleadores2').removeAll();
-                            Ext.getStore('Amonestados2').removeAll();
-                            Ext.getStore('Expulsados2').removeAll();
+                         Ext.getStore('Goleadores').removeAll();
+                         Ext.getStore('Amonestados').removeAll();
+                         Ext.getStore('Expulsados').removeAll();
+                         Ext.getStore('Goleadores2').removeAll();
+                         Ext.getStore('Amonestados2').removeAll();
+                         Ext.getStore('Expulsados2').removeAll();
 ////////////////////////////////////////////////////////////////////////////TAB-1/////////////////////////////////////////////
                           var a = tab.add({
 
                              xtype:'formpanel',
                              itemId:'firstTab',
-                             //tabBar: { style:'background:green'},
-                             title:'<p style="color:#5fa2dd;">'+e1+'</p>',
+                             title:'<p style="color:#21502a;">'+e1+'</p>',
                              equipo: e1,
                              equipo_id:id_e1,
                              fecha_id:fecha,
@@ -175,42 +179,42 @@ Ext.define('Plani.view.main.Planillero', {
                                ,dock: 'top'
                                ,items:[{
                                   xtype:'button'
-                                 ,text: 'Goleadores'
+                                 ,text: '<a style="font-size:13px">Goleadores</a>'
                                  ,style:'background-color:#FFF'
+                                 ,width:window.innerWidth*0.266
                                  ,padding:3
                                  ,handler:function(btn,e){
                                    btn.up().up().down('#fgol').show();
                                    btn.up().up().down('#famo').hide();
                                    btn.up().up().down('#fexp').hide();
                                    btn.up().up().down('#fpen').hide();
-								   Ext.getStore('Goleadores').load({params:{fixture_id:fixture_id,fecha_id:fecha,equipo_id:id_e1}});
-									Ext.getStore('Jugadores-Equipo').clearFilter();
-
+								                   Ext.getStore('Goleadores').load({params:{fixture_id:fixture_id,fecha_id:fecha,equipo_id:id_e1}});
+								                 	 Ext.getStore('Jugadores-Equipo').clearFilter();
                                  }
                                },{
                                  xtype:'button'
                                  ,padding:3
-                                 ,text: 'Amonestados'
+                                 ,width:window.innerWidth*0.266
+                                 ,text: '<a style="font-size:13px">Amonestados</a>'
                                  ,style:'background-color:#FFF'
                                  ,handler:function(btn,e){
                                    btn.up().up().down('#famo').show();
                                    btn.up().up().down('#fgol').setHidden(true);
                                    btn.up().up().down('#fexp').setHidden(true);
                                    btn.up().up().down('#fpen').hide();
-									Ext.getStore('Amonestados').load({params:{fixture_id:fixture_id,fecha_id:fecha,equipo_id:id_e1}});
-
-									  Ext.getStore('Jugadores-Equipo').filterBy(function(rec){
-											if(rec.get('jugador_id') !="0"){
-												console.log('lalala');
-												return rec;
-											}
-									  });
+									                 Ext.getStore('Amonestados').load({params:{fixture_id:fixture_id,fecha_id:fecha,equipo_id:id_e1}});
+                									 Ext.getStore('Jugadores-Equipo').filterBy(function(rec){
+                											if(rec.get('jugador_id') !="0"){
+                												return rec;
+                											}
+                									  });
                                  }
                                },{
                                  xtype:'button'
                                  ,style:'background-color:#FFF'
                                  ,padding:3
-                                 ,text: 'Expulsados'
+                                 ,width:window.innerWidth*0.266
+                                 ,text: '<a style="font-size:13px">Expulsados</a>'
                                  ,handler:function(btn,e){
                                    btn.up().up().down('#fexp').show();
                                    btn.up().up().down('#famo').hide();
@@ -226,58 +230,59 @@ Ext.define('Plani.view.main.Planillero', {
                 											}
                 									  });
 
-								 }
-                                 },{
-								xtype:'button',
-								text:'AUSENTE'
-								,padding:3
-								,style:'background-color:#FFF'
-								,handler:function(btn,e){
-									Ext.Msg.confirm("CONFIRMAR", "¿El Equipo está ausente?",function(btnText){
-										if(btnText === "yes"){
-											 var myObj = {
-												 equipo_id:id_e1,
-												 fecha_id:fecha,
-												 fixture_id:fixture_id
+								                  }
+                              },{
+								                 xtype: 'button'
+								                ,text: 'A'
+                                ,width:window.innerWidth*0.1
+                								,padding:3
+                								,style:'background-color:#FFF'
+								                ,handler:function(btn,e){
+                  									Ext.Msg.confirm("CONFIRMAR", "¿El Equipo está ausente?",function(btnText){
+                  										if(btnText === "yes"){
+                  											 var myObj = {
+                  												 equipo_id:id_e1,
+                  												 fecha_id:fecha,
+                  												 fixture_id:fixture_id
 
-												};
-												Ext.Ajax.request({
-												   url: 'http://dario-casa.sytes.net/api/nosepresenta'
-												  ,jsonData: myObj
-												  ,callback: function( opt, success, response ) {
-													var json = Ext.decode(response.responseText);
-													if ( response.status === 201 ) {
-													  if ( json.success ) {
-														Ext.Msg.show({
-														  title:'ATENCIÓN'
-														  ,message: 'Se ha establecido que el equipo no se presento'
-														  ,buttons: Ext.Msg.OK
-														  ,icon: Ext.Msg.INFO
-														});
-														Ext.ComponentQuery.query('mainplanilleros')[0].setActiveItem(1);
-													  }
-													}
-												  }
-												  ,failure : function( opt, success, response ) {
-													Ext.Msg.show({
-													  title:'Error'
-													  ,message: 'No se ha establecido que el equipo no se presento, por favor intente nuevamente '
-													  ,buttons: Ext.Msg.OK
-													  ,icon: Ext.Msg.ERROR
-													});
-												  }
-											});
+                  												};
+                  												Ext.Ajax.request({
+                  												   url: 'http://dario-casa.sytes.net/api/nosepresenta'
+                  												  ,jsonData: myObj
+                  												  ,callback: function( opt, success, response ) {
+                  													var json = Ext.decode(response.responseText);
+                  													if ( response.status === 201 ) {
+                  													  if ( json.success ) {
+                  														Ext.Msg.show({
+                  														  title:'ATENCIÓN'
+                  														  ,message: 'Se ha establecido que el equipo no se presento'
+                  														  ,buttons: Ext.Msg.OK
+                  														  ,icon: Ext.Msg.INFO
+                  														});
+                  														Ext.ComponentQuery.query('mainplanilleros')[0].setActiveItem(1);
+                  													  }
+                  													}
+                  												  }
+                  												  ,failure : function( opt, success, response ) {
+                  													Ext.Msg.show({
+                  													  title:'Error'
+                  													  ,message: 'No se ha establecido que el equipo no se presento, por favor intente nuevamente '
+                  													  ,buttons: Ext.Msg.OK
+                  													  ,icon: Ext.Msg.ERROR
+                  													});
+                  												  }
+                  											});
 
-										}
+                  										}
 
-									});
-								}
-
+                  									});
+                  								}
                                },{
                                  xtype:'button'
                                  ,padding:3
-                                 ,text: 'Penales'
-                                 ,hidden:true
+                                 ,width:window.innerWidth*0.1
+                                 ,text: 'P'
+                                 // ,hidden:true
                                  ,style:'background-color:#FFF'
                                  ,handler:function(btn,e){
                                    btn.up().up().down('#fpen').show();
@@ -293,20 +298,20 @@ Ext.define('Plani.view.main.Planillero', {
                                ,value: record.data.fixture_id
                              },{
                                xtype:'fieldset'
-							                 ,width:310
+							                 ,width:window.innerWidth-20
                                ,itemId:'fgol'
-                               ,title:'<p  style="color:#FFF";>GOLEADORES1</p>'
-                               ,style:'background-color:#5fa2dd'
+                               ,title:'<p  style="color:#FFF";>GOLEADORES</p>'
+                               ,style:'background-color:#21502a'
                                ,items:[ {
                                  xtype:'container'
                                  ,layout:'hbox'
                                  ,items:[{
                                       xtype:'selectfield'
-                                      ,width:250
+                                      ,width:window.innerWidth*0.8
                     									  //,height: 500
                     									  ,usePicker: false
                     									  ,defaultTabletPickerConfig: {
-                    								            centered: true,// tabletPicker is floating panel
+                    								      centered: true,// tabletPicker is floating panel
                     											height: 500,
                     											minHeight: 500
                     									  }
@@ -325,10 +330,9 @@ Ext.define('Plani.view.main.Planillero', {
                                       }
                                  },{
                                     xtype:'button'
-                                    ,text:'+'
+                                    ,text:'<a style="padding-right:25px">+</a>'
                                     ,itemId:'btnaddgol'
-                                    ,margin: '0 0 0 0'
-                                    ,width:50
+                                    ,width:window.innerWidth*0.2
                                     ,handler:function(btn,e){
                                         var combobox = btn.up().down('#cmbgoljugador'+id_e1);
                                         var v =  btn.up().down('#cmbgoljugador'+id_e1).getValue();
@@ -364,23 +368,22 @@ Ext.define('Plani.view.main.Planillero', {
                                     text: 'Id de jugador'
                                     ,name: 'Id de jugador'
                                     ,dataIndex : 'jugador_id'
-                                     ,width:150
+                                       ,width:150
                                      ,sortable:false
                                     ,hidden:true
                                  },{
                                     text: 'Jugador'
                                     ,name: 'Nombre jugador'
                                     ,dataIndex : 'text'
-                                     ,width:180
+                                     ,width:window.innerWidth*0.55
                                     ,sortable:false
                                  },{
                                     text: 'Goles'
                                     ,name: 'Goles'
                                     ,dataIndex: 'cant_goles'
-                                    ,width:60
-                                    ,editable: true
+                                    ,width:window.innerWidth*0.2
                                     ,sortable:false
-                                    ,editor: {"xtype":"numberfield","allowBlank":false,"minValue":1,"maxValue":150000}
+                                    //,editor: {"xtype":"numberfield","allowBlank":false,"minValue":1,"maxValue":150000}
 
                                  },{
                                    cell: {
@@ -388,7 +391,7 @@ Ext.define('Plani.view.main.Planillero', {
                                           encodeHtml: false
                                       },
                                       tpl: '<i class="fa fa-trash"></i>'
-                                      ,width: 60
+                                      ,width: window.innerWidth*0.2
                                       ,text:'Borrar'
 								                      ,sortable:false
                                  }]
@@ -409,10 +412,10 @@ Ext.define('Plani.view.main.Planillero', {
                              }]
                         },{
                            xtype:'fieldset'
-							             ,width:310
+                           ,width:window.innerWidth-20
                            ,itemId:'famo'
-                           ,title:'<p style="color:#FFF;">AMONESTADOS1</p>'
-                           ,style:'background-color:#5fa2dd'
+                           ,title:'<p style="color:#FFF;">AMONESTADOS</p>'
+                           ,style:'background-color:#21502a'
                            ,hidden:true
                            ,items:[{
                                  xtype:'container'
@@ -421,14 +424,14 @@ Ext.define('Plani.view.main.Planillero', {
                                      xtype:'selectfield'
                                     ,itemId:'cmbamojugador'+record.data.equipo1_id
                                     ,store:'Jugadores-Equipo'
+                                    ,width:window.innerWidth*0.8
 																		  ,usePicker: false
                   									  ,defaultTabletPickerConfig: {
                   								            centered: true,// tabletPicker is floating panel
-                  											height: 500,
-                  											minHeight: 500
+                  											      height: 500,
+                  											      minHeight: 500
                   									  }
                                     ,label:'<p>Jugador:</p>'
-                                    ,width:250
                                     ,valueField: 'jugador_id'
                                     ,listeners:{
                                        change:function(cmb){
@@ -441,10 +444,9 @@ Ext.define('Plani.view.main.Planillero', {
                                     }
                                },{
                                  xtype:'button'
-                                 ,text:'+'
+                                 ,text:'<a style="padding-right:25px">+</a>'
                                  ,itemId:'btnaddamo'
-                                 ,width:50
-                                 ,margin: '0 0 0 0'
+                                 ,width:window.innerWidth*0.2
                                  ,handler:function(btn,e){
                                       var combobox = btn.up().down('#cmbamojugador'+id_e1);
                                       var v =  btn.up().down('#cmbamojugador'+id_e1).getValue();
@@ -486,13 +488,14 @@ Ext.define('Plani.view.main.Planillero', {
                                        ,name: 'Nombre jugador'
                                        ,sortable:false
                                        ,dataIndex: 'text'
-                                       ,width:180
+                                       ,width:window.innerWidth*0.55
+
                                      },{
                                        text: 'Tarj'
                                        ,name: 'cant_tarjetas'
                                        ,dataIndex: 'cant_tarjetas'
                                        ,sortable:false
-                                       ,width:60
+                                       ,width:window.innerWidth*0.2
                                        ,editable:true
                                        //,editor: {"xtype":"numberfield","allowBlank":false,"minValue":1,"maxValue":150000}
                                      },{
@@ -502,7 +505,7 @@ Ext.define('Plani.view.main.Planillero', {
                                           },
                                           tpl: '<i class="fa fa-trash"></i>'
                                          ,text:'Borrar'
-                                         ,width:60
+                                         ,width:window.innerWidth*0.2
 										                     ,sortable:false
 
                                      }]
@@ -523,11 +526,11 @@ Ext.define('Plani.view.main.Planillero', {
                                  }]
                              },{
                                xtype:'fieldset'
-							                 ,width:310
+							                 ,width:window.innerWidth-20
                                ,itemId:'fexp'
                                ,hidden:true
-                               ,title:'<p  style="color:#FFF">EXPULSADOS1</p>'
-                               ,style:'background-color:#5fa2dd'
+                               ,title:'<p  style="color:#FFF">EXPULSADOS</p>'
+                               ,style:'background-color:#21502a'
                                ,collapsed:true
                                ,items:[{
                                     xtype:'container'
@@ -545,7 +548,7 @@ Ext.define('Plani.view.main.Planillero', {
                                     ,store:'Jugadores-Equipo'
                                     ,label:'<p style:"font-size:9px">Jugador:</p>'
                                     ,valueField: 'jugador_id'
-                                    ,width:250
+                                    ,width:window.innerWidth*0.8
                                     ,listeners:{
                                        change:function(cmb){
                                          if(!Ext.isEmpty(cmb.getValue())){
@@ -557,12 +560,11 @@ Ext.define('Plani.view.main.Planillero', {
                                     }
                                },{
                                  xtype:'button'
-                                 ,text:'+'
-                                 ,width:50
+                                 ,text:'<a style="padding-right:25px">+</a>'
+                                 ,width: window.innerWidth*0.2
                                  ,margin: '0 0 0 0'
                                  ,itemId:'btnaddexp'
                                  ,handler:function(btn,e){
-
                                       var combobox = btn.up().down('#cmbexpjugador'+id_e1);
                                       var v =  btn.up().down('#cmbexpjugador'+id_e1).getValue();
                                       var recordgol = Ext.getStore('Expulsados').findRecord('jugador_id', v);
@@ -600,7 +602,7 @@ Ext.define('Plani.view.main.Planillero', {
                                        ,name: 'Nombre jugador'
                                        ,dataIndex: 'text'
                                        ,sortable:false
-                                       ,width:240
+                                       ,width:window.innerWidth*0.75
 
                                      },{
                                        cell: {
@@ -609,7 +611,7 @@ Ext.define('Plani.view.main.Planillero', {
                                           },
                                           tpl: '<i class="fa fa-trash"></i>'
                                           ,text:'Borrar'
-                                          ,width:60
+                                          ,width:window.innerWidth*0.2
 										                      ,sortable:false
 
                                      }]
@@ -630,7 +632,7 @@ Ext.define('Plani.view.main.Planillero', {
                                  }]
                              },{
                                xtype:'fieldset'
-							                 ,width:310
+							                 ,width:window.innerWidth-20
                                ,itemId:'fpen'
                                ,title: 'Diferencia por penales'
                                ,hidden: true
@@ -656,7 +658,7 @@ Ext.define('Plani.view.main.Planillero', {
                                      ,itemId:'btnSavePlani'
                                      // ,hidden:true
                                      ,margin:'0 50 0 0'
-                                     ,style:'background-color:#5fa2dd'
+                                     ,style:'background-color:#21502a'
                                      ,listeners:{
 
 
@@ -689,11 +691,12 @@ Ext.define('Plani.view.main.Planillero', {
                                            // amonestados:"'"+JSON.stringify(amonestados)+"'",
                                            // expulsados:"'"+JSON.stringify(expulsados)+"'"
                                          }
+                                         console.log('este es objeto',JSON.stringify(obj));
                                          Ext.Ajax.request({
                                               url: 'http://dario-casa.sytes.net/api/goleadores',
                                               method: 'POST',
-                                              params: obj,
-                                             // params: {
+                                              params:JSON.stringify(obj),
+                                             // params: {JSON.stringify(obj)
                                              //       ajax_req: Ext.util.JSON.encode(obj)
                                              //    },
                                               // headers : {
@@ -726,7 +729,7 @@ Ext.define('Plani.view.main.Planillero', {
 ///////////////////////////////////////////////////////////////////////////////////TAB-2/////////////////////////////////////////////
                           var  b = tab.add ({
                                  xtype:'formpanel',
-                                 title:'<p style=color:#5fa2dd>'+e2+'</p>',
+                                 title:'<p style=color:#21502a>'+e2+'</p>',
                                  itemId:'secondTab',
                                  equipo: e2,
                                  equipo_id:record.data.equipo2_id,
@@ -738,9 +741,10 @@ Ext.define('Plani.view.main.Planillero', {
                                    ,dock: 'top'
                                    ,items:[{
                                       xtype:'button'
-                                     ,text: 'Goleadores'
+                                     ,text: '<a style="font-size:13px">Goleadores</a>'
                                      ,style:'background-color:#FFF'
                                      ,padding:3
+                                     ,width:window.innerWidth*0.266
                                      ,handler:function(btn,e){
                                        btn.up().up().down('#fgol2').show();
                                        btn.up().up().down('#famo2').hide();
@@ -752,29 +756,31 @@ Ext.define('Plani.view.main.Planillero', {
                                    },{
                                      xtype:'button'
                                      ,padding:3
-                                     ,text: 'Amonestados'
+                                     ,width:window.innerWidth*0.266
+                                     ,text: '<a style="font-size:13px">Amonestados</a>'
                                      ,style:'background-color:#FFF'
                                      ,handler:function(btn,e){
                                        btn.up().up().down('#famo2').show();
                                        btn.up().up().down('#fgol2').setHidden(true);
                                        btn.up().up().down('#fexp2').setHidden(true);
                                        btn.up().up().down('#fpen2').hide();
-									    Ext.getStore('Amonestados2').load({params:{fixture_id:fixture_id,fecha_id:fecha,equipo_id:id_e2}});
-										Ext.getStore('Jugadores-Equipo').filterBy(function(rec){
-											if(rec.get('jugador_id') !="0"){
-												console.log('lalala');
-												return rec;
-											}else{
-												console.log('555');
-											}
-									  });
+									                     Ext.getStore('Amonestados2').load({params:{fixture_id:fixture_id,fecha_id:fecha,equipo_id:id_e2}});
+                    										Ext.getStore('Jugadores-Equipo').filterBy(function(rec){
+                    											if(rec.get('jugador_id') !="0"){
+                    												console.log('lalala');
+                    												return rec;
+                    											}else{
+                    												console.log('555');
+                    											}
+                    									  });
 
                                      }
                                    },{
                                      xtype:'button'
                                      ,style:'background-color:#FFF'
                                      ,padding:3
-                                     ,text: 'Expulsados'
+                                     ,width:window.innerWidth*0.266
+                                     ,text: '<a style="font-size:13px">Expulsados</a>'
                                      ,handler:function(btn,e){
                                        btn.up().up().down('#fexp2').show();
                                        btn.up().up().down('#famo2').hide();
@@ -791,109 +797,110 @@ Ext.define('Plani.view.main.Planillero', {
 									  });
 
                                      }
-                                   },{
+                },{
 									   xtype:'button',
-								text:'AUSENTE'
-								,padding:3
-								,style:'background-color:#FFF'
-								,handler:function(btn,e){
-									Ext.Msg.confirm("CONFIRMAR", "¿El Equipo está ausente?",function(btnText){
-										if(btnText === "yes"){
-											 var myObj = {
-												 equipo_id:id_e2,
-												 fecha_id:fecha,
-												 fixture_id:fixture_id
+								    text:'A'
+                    ,width:window.innerWidth*0.1
+								    ,padding:3
+								   ,style:'background-color:#FFF'
+								   ,handler:function(btn,e){
+									     Ext.Msg.confirm("CONFIRMAR", "¿El Equipo está ausente?",function(btnText){
+    										if(btnText === "yes"){
+    											 var myObj = {
+    												 equipo_id:id_e2,
+    												 fecha_id:fecha,
+    												 fixture_id:fixture_id
 
-												};
-												Ext.Ajax.request({
-												   url: 'http://dario-casa.sytes.net/api/nosepresenta'
-												  ,jsonData: myObj
-												  ,callback: function( opt, success, response ) {
-													var json = Ext.decode(response.responseText);
-													if ( response.status === 201 ) {
-													  if ( json.success ) {
-														Ext.Msg.show({
-														  title:'ATENCIÓN'
-														  ,message: 'Se ha establecido que el equipo no se presento'
-														  ,buttons: Ext.Msg.OK
-														  ,icon: Ext.Msg.INFO
-														});
-														Ext.ComponentQuery.query('mainplanilleros')[0].setActiveItem(1);
-													  }
-													}
-												  }
-												  ,failure : function( opt, success, response ) {
-													Ext.Msg.show({
-													  title:'Error'
-													  ,message: 'No se ha establecido que el equipo no se presento, por favor intente nuevamente '
-													  ,buttons: Ext.Msg.OK
-													  ,icon: Ext.Msg.ERROR
-													});
-												  }
-											});
+    												};
+    												Ext.Ajax.request({
+    												   url: 'http://dario-casa.sytes.net/api/nosepresenta'
+    												  ,jsonData: myObj
+    												  ,callback: function( opt, success, response ) {
+    													var json = Ext.decode(response.responseText);
+    													if ( response.status === 201 ) {
+    													  if ( json.success ) {
+    														Ext.Msg.show({
+    														  title:'ATENCIÓN'
+    														  ,message: 'Se ha establecido que el equipo no se presento'
+    														  ,buttons: Ext.Msg.OK
+    														  ,icon: Ext.Msg.INFO
+    														});
+    														Ext.ComponentQuery.query('mainplanilleros')[0].setActiveItem(1);
+    													  }
+    													}
+    												  }
+    												  ,failure : function( opt, success, response ) {
+    													Ext.Msg.show({
+    													  title:'Error'
+    													  ,message: 'No se ha establecido que el equipo no se presento, por favor intente nuevamente '
+    													  ,buttons: Ext.Msg.OK
+    													  ,icon: Ext.Msg.ERROR
+    													});
+    												  }
+    											});
 
-										}
+    										}
 
-									});
-								}
-								   },
-								   {
-                                     xtype:'button'
-                                     ,padding:3
-                                     ,text: 'Penales'
-                                     ,hidden:true
-                                     ,style:'background-color:#FFF'
-                                     ,handler:function(btn,e){
-                                       btn.up().up().down('#fpen2').show();
-                                       btn.up().up().down('#fexp2').hide();
-                                       btn.up().up().down('#famo2').hide();
-                                       btn.up().up().down('#fgol2').hide();
-                                     }
-                                   }]
-                                 },{
-                                    xtype: 'textfield'
-                                   ,name: 'fixture_id'
-                                   ,hidden:true
-                                   ,value: record.data.fixture_id
-                                 },{
-                                   xtype:'fieldset'
-								                   ,width:310
-                                   ,itemId:'fgol2'
-                                   ,title:'<p style="color:#FFF">GOLEADORES2</p>'
-                                   ,style:'background-color:#5fa2dd'
-                                   ,items:[
-                                     {
-                                       xtype:'container'
-                                       ,layout:'hbox'
-                                      ,items:[{
-                                      xtype:'selectfield'
-									  									  ,usePicker: false
-									                     ,defaultTabletPickerConfig: {
-								                         centered: true,// tabletPicker is floating panel
-                    											height: 500,
-                    											minHeight: 500
-                    									  }
-                                     ,width:250
-                                     ,label:'<p style:"font-size:9px">Jugador:</p>'
-                                     ,store:'Jugadores-Equipo'
-                                     ,valueField: 'jugador_id'
-                                     ,itemId:'cmbgoljugador'+record.data.equipo2_id
-                                     ,listeners:{
-                                       change:function(cmb){
-                                         if(!Ext.isEmpty(cmb.getValue())){
-                                          cmb.up().down('#btnaddgol2').setDisabled(false);
-                                         }else{
-                                           cmb.up().down('#btnaddgol2').setDisabled(true);
-                                         }
-                                       }
-                                     }
+    									});
+    								}
+								 },{
+                     xtype:'button'
+                     ,padding:3
+                     ,text: 'P'
+                     ,width:window.innerWidth*0.1
+                     // ,hidden:true
+                     ,style:'background-color:#FFF'
+                     ,handler:function(btn,e){
+                       btn.up().up().down('#fpen2').show();
+                       btn.up().up().down('#fexp2').hide();
+                       btn.up().up().down('#famo2').hide();
+                       btn.up().up().down('#fgol2').hide();
+                     }
+                }]
+             },{
+                    xtype: 'textfield'
+                   ,name: 'fixture_id'
+                   ,hidden:true
+                   ,value: record.data.fixture_id
+                 },{
+                   xtype:'fieldset'
+                   ,width:window.innerWidth-20
+                   ,itemId:'fgol2'
+                   ,title:'<p style="color:#FFF">GOLEADORES</p>'
+                   ,style:'background-color:#21502a'
+                   ,items:[
+                     {
+                       xtype:'container'
+                       ,layout:'hbox'
+                      ,items:[{
+                      xtype:'selectfield'
+	  									  ,usePicker: false
+	                     ,defaultTabletPickerConfig: {
+                         centered: true,// tabletPicker is floating panel
+    											height: 500,
+    											minHeight: 500
+    									  }
+                     ,width:window.innerWidth*0.8
+                     ,label:'<p style:"font-size:9px">Jugador:</p>'
+                     ,store:'Jugadores-Equipo'
+                     ,valueField: 'jugador_id'
+                     ,itemId:'cmbgoljugador'+record.data.equipo2_id
+                     ,listeners:{
+                       change:function(cmb){
+                         if(!Ext.isEmpty(cmb.getValue())){
+                          cmb.up().down('#btnaddgol2').setDisabled(false);
+                         }else{
+                           cmb.up().down('#btnaddgol2').setDisabled(true);
+                         }
+                       }
+                     }
 
                                    },{
                                      xtype:'button'
-                                     ,text:'+'
+                                     ,text:'<a style="padding-right:25px">+</a>'
                                      ,itemId:'btnaddgol2'
                                      ,margin: '0 0 0 0'
-                                     ,width:50
+                                     ,width:window.innerWidth*0.2
                                      ,handler:function(btn,e){
                                        var combobox = btn.up().down('#cmbgoljugador'+id_e2);
                                        var v =  btn.up().down('#cmbgoljugador'+id_e2).getValue();
@@ -924,20 +931,6 @@ Ext.define('Plani.view.main.Planillero', {
                                          ,height:200
                                          ,hideHeaders: true
                                          ,itemId:'gridGolE2'
-                                         ,plugins: {
-                                           type:'grideditable'
-                                           ,enableDeleteButton: false
-                                           ,formConfig:{
-                                             items:[{
-                                               xtype: 'numberfield',
-                                               label: 'Goles',
-                                               minValue: 1,
-                                               maxValue: 150,
-                                               name: 'cant_goles'
-                                             }]
-                                           }
-
-                                         }
                                          ,titleBar: { hidden: true }
                                          ,emptyText:'No hay goleadores cargados'
                                          ,store:'Goleadores2'
@@ -952,16 +945,15 @@ Ext.define('Plani.view.main.Planillero', {
                                             text: 'Jugador'
                                             ,name: 'Nombre jugador'
                                             ,dataIndex : 'text'
-                                             ,width:180
+                                             ,width:window.innerWidth*0.55
                                             ,sortable:false
                                          },{
                                             text: 'Goles'
                                             ,name: 'Goles'
                                             ,dataIndex: 'cant_goles'
-                                            ,width:60
-                                            ,editable: true
+                                            ,width:window.innerWidth*0.2
                                             ,sortable:false
-                                            ,editor: {"xtype":"numberfield","allowBlank":false,"minValue":1,"maxValue":150000}
+                                           // ,editor: {"xtype":"numberfield","allowBlank":false,"minValue":1,"maxValue":150000}
 
                                          },{
                                            cell: {
@@ -969,7 +961,7 @@ Ext.define('Plani.view.main.Planillero', {
                                                   encodeHtml: false
                                               },
                                               tpl: '<i class="fa fa-trash"></i>'
-                                              ,width: 60
+                                              ,width: window.innerWidth*0.2
                                               ,text:'Borrar'
 											                        ,sortable:false
                                          }]
@@ -991,26 +983,26 @@ Ext.define('Plani.view.main.Planillero', {
                                      }]
                                  },{
                                    xtype:'fieldset'
-								                   ,width:310
+								                   ,width:window.innerWidth-20
                                    ,itemId:'famo2'
-                                   ,title:'<p style="color:#FFF;">AMONESTADOS2</p>'
-                                   ,style:'background-color:#5fa2dd'
+                                   ,title:'<p style="color:#FFF;">AMONESTADOS</p>'
+                                   ,style:'background-color:#21502a'
                                    ,hidden:true
                                    ,items:[{
                                      xtype:'container'
                                      ,layout:'hbox'
                                      ,items:[{
                                          xtype:'selectfield'
-                                        									  ,usePicker: false
-									  ,defaultTabletPickerConfig: {
-								            centered: true,// tabletPicker is floating panel
-											height: 500,
-											minHeight: 500
-									  }
-										,itemId:'cmbamojugador'+record.data.equipo2_id
+                                         ,usePicker: false
+                    									  ,defaultTabletPickerConfig: {
+                    								            centered: true,// tabletPicker is floating panel
+                    											height: 500,
+                    											minHeight: 500
+                    									  }
+										                    ,itemId:'cmbamojugador'+record.data.equipo2_id
                                         ,store:'Jugadores-Equipo'
                                         ,label:'<p>Jugador:</p>'
-                                        ,width:250
+                                        ,width:window.innerWidth*0.8
                                         ,valueField: 'jugador_id'
                                         ,listeners:{
                                            change:function(cmb){
@@ -1023,9 +1015,9 @@ Ext.define('Plani.view.main.Planillero', {
                                         }
                                    },{
                                      xtype:'button'
-                                     ,text:'+'
+                                     ,text:'<a style="padding-right:25px">+</a>'
                                      ,itemId:'btnaddamo2'
-                                     ,width:50
+                                     ,width:window.innerWidth*0.2
                                      ,margin: '0 0 0 0'
                                      ,handler:function(btn,e){
                                             var combobox = btn.up().down('#cmbamojugador'+id_e2);
@@ -1069,13 +1061,13 @@ Ext.define('Plani.view.main.Planillero', {
                                            ,name: 'Nombre jugador'
                                            ,sortable:false
                                            ,dataIndex: 'text'
-                                           ,width:180
+                                           ,width:window.innerWidth*0.55
                                          },{
                                            text: 'Tarj'
                                            ,name: 'cant_tarjetas'
                                            ,dataIndex: 'cant_tarjetas'
                                            ,sortable:false
-                                           ,width:60
+                                           ,width:window.innerWidth*0.2
                                            ,editable:true
                                            //,editor: {"xtype":"numberfield","allowBlank":false,"minValue":1,"maxValue":150000}
                                          },{
@@ -1085,8 +1077,8 @@ Ext.define('Plani.view.main.Planillero', {
                                               },
                                               tpl: '<i class="fa fa-trash"></i>'
                                              ,text:'Borrar'
-                                             ,width:60
-											 ,sortable:false
+                                             ,width:window.innerWidth*0.2
+											                       ,sortable:false
 
                                          }]
                                          ,listeners:{
@@ -1106,11 +1098,11 @@ Ext.define('Plani.view.main.Planillero', {
                                      }]
                                  },{
                                     xtype:'fieldset'
-								                   ,width:310
+								                   ,width:window.innerWidth-20
                                    ,itemId:'fexp2'
                                    ,hidden:true
-                                   ,title:'<p style="color:#FFF">EXPULSADOS2</p>'
-                                   ,style:'background-color:#5fa2dd'
+                                   ,title:'<p style="color:#FFF">EXPULSADOS</p>'
+                                   ,style:'background-color:#21502a'
                                    ,collapsed:true
                                    ,items:[{
                                         xtype:'container'
@@ -1128,7 +1120,7 @@ Ext.define('Plani.view.main.Planillero', {
                                         ,store:'Jugadores-Equipo'
                                         ,label:'<p style:"font-size:9px">Jugador:</p>'
                                         ,valueField: 'jugador_id'
-                                        ,width:250
+                                        ,width:window.innerWidth*0.8
 
                                         //,autoLoad:true
                                      // ,itemId:'cmbgoljugador'+record.data.equipo2_id
@@ -1143,8 +1135,8 @@ Ext.define('Plani.view.main.Planillero', {
                                         }
                                    },{
                                      xtype:'button'
-                                     ,text:'+'
-                                     ,width:50
+                                     ,text:'<a style="padding-right:25px">+</a>'
+                                     ,width:window.innerWidth*0.2
                                      ,margin: '0 0 0 0'
                                      ,itemId:'btnaddexp2'
                                      ,handler:function(btn,e){
@@ -1185,7 +1177,7 @@ Ext.define('Plani.view.main.Planillero', {
                                            ,name: 'Nombre jugador'
                                            ,dataIndex: 'text'
                                            ,sortable:false
-                                           ,width:240
+                                           ,width:window.innerWidth*0.8
 
                                          },{
                                            cell: {
@@ -1194,7 +1186,7 @@ Ext.define('Plani.view.main.Planillero', {
                                               },
                                               tpl: '<i class="fa fa-trash"></i>'
                                               ,text:'Borrar'
-                                              ,width:60
+                                              ,width:window.innerWidth*0.2
 											                        ,sortable:false
 
                                          }]
@@ -1216,7 +1208,7 @@ Ext.define('Plani.view.main.Planillero', {
                                      }]
                                  },{
                                    xtype:'fieldset'
-								                   ,width:310
+								                   ,width:window.innerWidth-20
                                    ,itemId:'fpen2'
                                    ,title: 'Diferencia por penales'
                                    ,hidden: true
@@ -1241,7 +1233,7 @@ Ext.define('Plani.view.main.Planillero', {
                                         ,text:'Guardar'
                                           ,itemId:'btnSavePlani2'
                                          ,margin:'0 50 0 0'
-                                         ,style:'background-color:#5fa2dd'
+                                         ,style:'background-color:#21502a'
                                          ,listeners:{
                                           tap:function(btn,e){
                                            goleadores = Array();
@@ -1275,7 +1267,7 @@ Ext.define('Plani.view.main.Planillero', {
                                              Ext.Ajax.request({
                                                   url: 'http://dario-casa.sytes.net/api/goleadores',
                                                   method: 'POST',
-                                                  params: obj,
+                                                  params:JSON.stringify(obj),
                                                  // params: {
                                                  //       ajax_req: Ext.util.JSON.encode(obj)
                                                  //    },
@@ -1315,7 +1307,7 @@ Ext.define('Plani.view.main.Planillero', {
                 }]
 
             },{
-               // title: '<a style=color:#5fa2dd>.</a>',
+               // title: '<a style=color:#21502a>.</a>',
                  iconCls: 'x-fa fa-edit',
 				 layout: 'fit',
                  items:[{
@@ -1342,9 +1334,7 @@ Ext.define('Plani.view.main.Planillero', {
                       }
                   }]
                 ,listeners:{
-
                   activate : function (panel,e){
-                    console.log('SE ACTIVOOOOOOOOOOOOOOOOOOOOOO',panel);
                       var fixture_id = panel.down('#firstTab').fixture_id,
                           fecha_id = panel.down('#firstTab').fecha_id,
                           equipo_id = panel.down('#firstTab').equipo_id;

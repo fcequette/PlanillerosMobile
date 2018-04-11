@@ -82,7 +82,7 @@ Ext.define('Plani.view.main.Main', {
               width:'100%',
               height:'100%',
               bodyPadding: 10,
-              style: 'background-color:#5fa2dd',
+              style: 'background-color:#21502a',
               defaults:{
                 margin:'50 0'
               }
@@ -91,7 +91,7 @@ Ext.define('Plani.view.main.Main', {
                 html:'<div><img width=120px;height:100px; src="http://dario-casa.sytes.net/logo.jpeg" alt="TODA LA GRINGA"><div style=padding-left:30px;color:#FFF;font-size:50px;display:inline-block></div></div>'
                 ,padding:'0 0 0 0'
                 ,margin:0
-                ,style: 'background-color:#5fa2dd'
+                ,style: 'background-color:#21502a'
                 ,height:120
               },{
                 label: 'Usuario',
@@ -115,10 +115,12 @@ Ext.define('Plani.view.main.Main', {
                 ,name: 'client_secret'
                 ,value: 'frutill4s'
               },{
-                  text: 'INGRESAR1',
+                  text: 'INGRESAR',
                   xtype: 'button',
-                  style: 'background-color:#5fa2dd;height:50px;color:#FFF;font-size:20px',
+                  itemId:'btnEspere',
+                  style: 'background-color:#21502a;height:50px;color:#FFF;font-size:20px',
                   handler:function(fp,e) {
+                    Ext.ComponentQuery.query('#btnEspere')[0].setText('Espere...');
                     var form = Ext.ComponentQuery.query('#formLog')[0];
                     jsonData = form.getValues();
                     jsonData.username = jsonData.username.toLowerCase();
@@ -135,6 +137,7 @@ Ext.define('Plani.view.main.Main', {
                          if ( json.status == 401 ) {
                            Ext.Msg.alert('ERROR', 'Combinación de usuario y clave inválido', function() {
                              //me.view.down('#loginCard textfield[inputType="password"]').focus(true, 100);
+                             Ext.ComponentQuery.query('#btnEspere')[0].setText('INGRESAR');
                            });
                            return false;
                          }
@@ -156,11 +159,13 @@ Ext.define('Plani.view.main.Main', {
                          } else {
                            Ext.Msg.alert('ERROR', 'Usuario o Contraseña incorrectos', function() {
                              //me.view.down('#loginCard textfield[inputType="password"]').focus(true, 100);
+                              Ext.ComponentQuery.query('#btnEspere')[0].setText('INGRESAR');
                            });
                          }
                        }
                        ,failure: function( form, action ) {
                          Ext.Msg.alert('ERROR', 'Problemas de conexión', function() {
+                           Ext.ComponentQuery.query('#btnEspere')[0].setText('INGRESAR');
                          });
                        }
                      });

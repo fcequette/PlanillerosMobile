@@ -85,7 +85,7 @@ Ext.define('Plani.view.main.Main', {
              // modal: true,
               bodyPadding: 10,
               //padding:'20 0 0 0',
-              style: 'background-color:#5fa2dd',
+              style: 'background-color:#21502a',
               defaults:{
 
                 margin:'50 0'
@@ -93,7 +93,7 @@ Ext.define('Plani.view.main.Main', {
               , items: [{
                  xtype:'button'
                 ,text:'LOGIN'
-                ,style: 'background-color:#5fa2dd;height:80px;color:#FFF;font-size:25px'
+                ,style: 'background-color:#21502a;height:80px;color:#FFF;font-size:25px'
                 ,margin:'0 0'
 
               },{
@@ -109,7 +109,7 @@ Ext.define('Plani.view.main.Main', {
               },{
                   text: 'Ingresar22',
                   xtype: 'button',
-                  style: 'background-color:#5fa2dd;height:50px;color:#FFF;font-size:20px',
+                  style: 'background-color:#21502a;height:50px;color:#FFF;font-size:20px',
                   handler:function(fp,e) {
                     Ext.Viewport.remove(fp.up('formpanel'),true);
                     second = true;

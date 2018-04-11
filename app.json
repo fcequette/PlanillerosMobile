@@ -14,8 +14,10 @@
      *      ]
      */
     "requires": [
-        "font-awesome"
+        "font-awesome",
+        "ext-locale"
     ],
+
 
     /**
      * The relative path to the application's markup file (html, jsp, asp, etc.).
@@ -217,6 +219,9 @@
             {
                 "path": "${framework.dir}/build/ext-all-rtl-debug.js"
             }
+        ],
+        "requires": [
+          "ext-locale"
         ]
     },
 
@@ -230,6 +235,7 @@
                 "path": "${framework.dir}/build/ext-modern-all-debug.js"
             }
         ]
+
     },
 
     /**
@@ -542,7 +548,8 @@
     "ignore": [
         "(^|/)CVS(/?$|/.*?$)"
     ],
-	"locale": "es",
+
+	   "locale": "es",
 
     /**
      * Uniquely generated id for this application, used as prefix for localStorage keys.

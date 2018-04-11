@@ -19,14 +19,14 @@ Ext.define('Plani.view.main.MainVuelven', {
       text: 'Jugador'
       ,name: 'text'
       ,dataIndex : 'text'
-      ,width:150
+      ,width:window.innerWidth/2
       ,sortable:false
 
     },{
       text: 'Equipo'
       ,name: 'equipo'
       ,dataIndex : 'equipo'
-      ,width:150
+      ,width:window.innerWidth/2
       ,sortable:false
 
     }]

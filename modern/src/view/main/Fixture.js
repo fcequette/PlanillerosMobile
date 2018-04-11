@@ -29,8 +29,12 @@ Ext.define('Plani.view.main.Fixture', {
                 iconCls: 'x-fa fa-home',
                 xtype:'formpanel'
                 ,itemId:'formFixturePlani'
-                ,defaults: {
-                    margin: '35 0'
+                ,defaults:{
+                  defaultPhonePickerConfig : {
+                    doneButton : 'Aceptar',
+                    cancelButton : 'Cancelar'
+                  }
+                  , margin: '30 0'
                 }
                 ,items:[{
                   xtype:'selectfield'
@@ -94,7 +98,7 @@ Ext.define('Plani.view.main.Fixture', {
                 ,{
                   xtype: 'button',
                   text: 'Fixture',
-                  style: 'background-color:#5fa2dd;height:50px;color:#FFF;font-size:20px',
+                  style: 'background-color:#21502a;height:50px;color:#FFF;font-size:20px',
 
                   handler: function (btn,e) {
                     console.log('este',btn.up().up('tabpanel'));

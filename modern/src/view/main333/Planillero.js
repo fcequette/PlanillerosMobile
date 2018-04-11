@@ -38,7 +38,7 @@ Ext.define('Plani.view.main.Planillero', {
 
         },
         items: [{
-                title: '<a style=color:#5fa2dd>.</a>',
+                title: '<a style=color:#21502a>.</a>',
                 layout:'fit',
                 items:[
                 {/////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -103,7 +103,7 @@ Ext.define('Plani.view.main.Planillero', {
                         ,text:'Planilleros'
                         ,itemId:'btnPlanillero'
                         ,hidden:true
-                        ,style: 'background-color:#5fa2dd;height:50px;color:#FFF;font-size:20px'
+                        ,style: 'background-color:#21502a;height:50px;color:#FFF;font-size:20px'
                         ,handler: function(btn,e){
 
                             btn.up().up('tabpanel').setActiveItem(1);
@@ -130,7 +130,7 @@ Ext.define('Plani.view.main.Planillero', {
 
             },
             {
-              title: '<a style=color:#5fa2dd>.</a>',
+              title: '<a style=color:#21502a>.</a>',
                 layout: 'fit',
                 items:[{
                      xtype:'grid'
@@ -160,7 +160,7 @@ Ext.define('Plani.view.main.Planillero', {
                              xtype:'formpanel',
                              itemId:'firstTab',
                              //tabBar: { style:'background:green'},
-                             title:'<p style="color:#5fa2dd;">'+e1+'</p>',
+                             title:'<p style="color:#21502a;">'+e1+'</p>',
                              equipo: e1,
                              equipo_id:id_e1,
                              fecha_id:fecha,
@@ -226,7 +226,7 @@ Ext.define('Plani.view.main.Planillero', {
                                xtype:'fieldset'
                                ,itemId:'fgol'
                                ,title:'<p>GOLEADORES</p>'
-                               ,style:'background-color:#5fa2dd'
+                               ,style:'background-color:#21502a'
                                ,items:[
                                  {
                                    xtype:'container'
@@ -336,7 +336,7 @@ Ext.define('Plani.view.main.Planillero', {
                                xtype:'fieldset'
                                ,itemId:'famo'
                                ,title:'<p>AMONESTADOS</p>'
-                               ,style:'background-color:#5fa2dd'
+                               ,style:'background-color:#21502a'
                                ,hidden:true
                                ,items:[{
                                  xtype:'container'
@@ -434,7 +434,7 @@ Ext.define('Plani.view.main.Planillero', {
                                ,itemId:'fexp'
                                ,hidden:true
                                ,title:'<p>EXPULSADOS</p>'
-                               ,style:'background-color:#5fa2dd'
+                               ,style:'background-color:#21502a'
                                ,collapsed:true
                                ,items:[{
                                     xtype:'container'
@@ -547,7 +547,7 @@ Ext.define('Plani.view.main.Planillero', {
                                      xtype:'button'
                                      ,text:'Guardar'
                                      ,margin:'0 50 0 0'
-                                     ,style:'background-color:#5fa2dd'
+                                     ,style:'background-color:#21502a'
                                      ,handler:function(btn,e){
                                        goleadores = Array();
                                        expulsados = Array();
@@ -613,7 +613,7 @@ Ext.define('Plani.view.main.Planillero', {
 ///////////////////////////////////////////////////////////////////////////////////TAB-2/////////////////////////////////////////////
                           var  b = tab.add ({
                                  xtype:'formpanel',
-                                 title:'<p style=color:#5fa2dd>'+e2+'</p>',
+                                 title:'<p style=color:#21502a>'+e2+'</p>',
                                  itemId:'secondTab',
                                  equipo: e2,
                                  equipo_id:record.data.equipo2_id,
@@ -686,7 +686,7 @@ Ext.define('Plani.view.main.Planillero', {
                                    xtype:'fieldset'
                                    ,itemId:'fgol2'
                                    ,title:'<p>GOLEADORES</p>'
-                                   ,style:'background-color:#5fa2dd'
+                                   ,style:'background-color:#21502a'
                                    ,items:[
                                      {
                                        xtype:'container'
@@ -796,7 +796,7 @@ Ext.define('Plani.view.main.Planillero', {
                                    xtype:'fieldset'
                                    ,itemId:'famo2'
                                    ,title:'<p>AMONESTADOS</p>'
-                                   ,style:'background-color:#5fa2dd'
+                                   ,style:'background-color:#21502a'
                                    ,hidden:true
                                    ,items:[{
                                      xtype:'container'
@@ -894,7 +894,7 @@ Ext.define('Plani.view.main.Planillero', {
                                    ,itemId:'fexp2'
                                    ,hidden:true
                                    ,title:'<p>EXPULSADOS</p>'
-                                   ,style:'background-color:#5fa2dd'
+                                   ,style:'background-color:#21502a'
                                    ,collapsed:true
                                    ,items:[{
                                         xtype:'container'
@@ -1007,7 +1007,7 @@ Ext.define('Plani.view.main.Planillero', {
                                          xtype:'button'
                                          ,text:'Guardar'
                                          ,margin:'0 50 0 0'
-                                         ,style:'background-color:#5fa2dd'
+                                         ,style:'background-color:#21502a'
                                          ,handler:function(btn,e){
                                            goleadores = Array();
                                            expulsados = Array();
@@ -1079,7 +1079,7 @@ Ext.define('Plani.view.main.Planillero', {
                 }]
 
             },{
-                title: '<a style=color:#5fa2dd>.</a>',
+                title: '<a style=color:#21502a>.</a>',
                  layout: 'fit',
                  items:[{
                     xtype:'tabpanel'

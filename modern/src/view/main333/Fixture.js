@@ -100,7 +100,7 @@ Ext.define('Plani.view.main.Fixture', {
                 ,{
                   xtype: 'button',
                   text: 'Fixture',
-                  style: 'background-color:#5fa2dd;height:50px;color:#FFF;font-size:20px',
+                  style: 'background-color:#21502a;height:50px;color:#FFF;font-size:20px',
 
                   handler: function (btn,e) {
                     console.log('este',btn.up().up('tabpanel'));

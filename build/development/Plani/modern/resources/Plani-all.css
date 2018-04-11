@@ -2725,7 +2725,7 @@
 /* C:/wamp64/www/Plani/ext/packages/core/sass/src/list/TreeItem.scss:170 */
 .x-treelist-item-icon,
 .x-treelist-item-tool {
-    color: #5fa2dd;
+    color: #21502a;
     font-size: 16px;
     width: 16px;
 }
@@ -2745,7 +2745,7 @@
 }
 /* C:/wamp64/www/Plani/ext/packages/core/sass/src/list/TreeItem.scss:193 */
 .x-treelist-item-expander {
-    color: #5fa2dd;
+    color: #21502a;
     font-size: 16px;
     width: 16px;
 }
@@ -2838,7 +2838,7 @@
 }
 /* C:/wamp64/www/Plani/ext/packages/core/sass/src/list/TreeItem.scss:324 */
 &.x-treelist-highlight-path .x-treelist-item:hover > * > .x-treelist-item-icon {
-    color: #5fa2dd;
+    color: #21502a;
     transition: color 0.5s;
 }
 /* C:/wamp64/www/Plani/ext/packages/core/sass/src/list/TreeItem.scss:328 */
@@ -2848,7 +2848,7 @@
 }
 /* C:/wamp64/www/Plani/ext/packages/core/sass/src/list/TreeItem.scss:332 */
 &.x-treelist-highlight-path .x-treelist-item:hover > * > .x-treelist-item-expander {
-    color: #5fa2dd;
+    color: #21502a;
     transition: color 0.5s;
 }
 /* C:/wamp64/www/Plani/ext/packages/core/sass/src/list/TreeItem.scss:339 */
@@ -2857,7 +2857,7 @@
 }
 /* C:/wamp64/www/Plani/ext/packages/core/sass/src/list/TreeItem.scss:342 */
 .x-treelist-row:hover > * > .x-treelist-item-icon {
-    color: #5fa2dd;
+    color: #21502a;
     transition: color 0.5s;
 }
 /* C:/wamp64/www/Plani/ext/packages/core/sass/src/list/TreeItem.scss:346 */
@@ -2867,7 +2867,7 @@
 }
 /* C:/wamp64/www/Plani/ext/packages/core/sass/src/list/TreeItem.scss:350 */
 .x-treelist-row:hover > * > .x-treelist-item-expander {
-    color: #5fa2dd;
+    color: #21502a;
     transition: color 0.5s;
 }
 /* C:/wamp64/www/Plani/ext/packages/core/sass/src/list/TreeItem.scss:357 */
@@ -5356,105 +5356,105 @@ html.x-big {
 }
 /* C:/wamp64/www/Plani/ext/modern/theme-neptune/sass/etc/mixins/border-management.scss:2 */
 .x-panel-outer-border-l {
-    border-left-color: #5fa2dd !important;
+    border-left-color: #21502a !important;
     border-left-width: 1px !important;
 }
 /* C:/wamp64/www/Plani/ext/modern/theme-neptune/sass/etc/mixins/border-management.scss:6 */
 .x-panel-outer-border-b {
-    border-bottom-color: #5fa2dd !important;
+    border-bottom-color: #21502a !important;
     border-bottom-width: 1px !important;
 }
 /* C:/wamp64/www/Plani/ext/modern/theme-neptune/sass/etc/mixins/border-management.scss:10 */
 .x-panel-outer-border-bl {
-    border-bottom-color: #5fa2dd !important;
+    border-bottom-color: #21502a !important;
     border-bottom-width: 1px !important;
-    border-left-color: #5fa2dd !important;
+    border-left-color: #21502a !important;
     border-left-width: 1px !important;
 }
 /* C:/wamp64/www/Plani/ext/modern/theme-neptune/sass/etc/mixins/border-management.scss:16 */
 .x-panel-outer-border-r {
-    border-right-color: #5fa2dd !important;
+    border-right-color: #21502a !important;
     border-right-width: 1px !important;
 }
 /* C:/wamp64/www/Plani/ext/modern/theme-neptune/sass/etc/mixins/border-management.scss:20 */
 .x-panel-outer-border-rl {
-    border-right-color: #5fa2dd !important;
+    border-right-color: #21502a !important;
     border-right-width: 1px !important;
-    border-left-color: #5fa2dd !important;
+    border-left-color: #21502a !important;
     border-left-width: 1px !important;
 }
 /* C:/wamp64/www/Plani/ext/modern/theme-neptune/sass/etc/mixins/border-management.scss:26 */
 .x-panel-outer-border-rb {
-    border-right-color: #5fa2dd !important;
+    border-right-color: #21502a !important;
     border-right-width: 1px !important;
-    border-bottom-color: #5fa2dd !important;
+    border-bottom-color: #21502a !important;
     border-bottom-width: 1px !important;
 }
 /* C:/wamp64/www/Plani/ext/modern/theme-neptune/sass/etc/mixins/border-management.scss:32 */
 .x-panel-outer-border-rbl {
-    border-right-color: #5fa2dd !important;
+    border-right-color: #21502a !important;
     border-right-width: 1px !important;
-    border-bottom-color: #5fa2dd !important;
+    border-bottom-color: #21502a !important;
     border-bottom-width: 1px !important;
-    border-left-color: #5fa2dd !important;
+    border-left-color: #21502a !important;
     border-left-width: 1px !important;
 }
 /* C:/wamp64/www/Plani/ext/modern/theme-neptune/sass/etc/mixins/border-management.scss:40 */
 .x-panel-outer-border-t {
-    border-top-color: #5fa2dd !important;
+    border-top-color: #21502a !important;
     border-top-width: 1px !important;
 }
 /* C:/wamp64/www/Plani/ext/modern/theme-neptune/sass/etc/mixins/border-management.scss:44 */
 .x-panel-outer-border-tl {
-    border-top-color: #5fa2dd !important;
+    border-top-color: #21502a !important;
     border-top-width: 1px !important;
-    border-left-color: #5fa2dd !important;
+    border-left-color: #21502a !important;
     border-left-width: 1px !important;
 }
 /* C:/wamp64/www/Plani/ext/modern/theme-neptune/sass/etc/mixins/border-management.scss:50 */
 .x-panel-outer-border-tb {
-    border-top-color: #5fa2dd !important;
+    border-top-color: #21502a !important;
     border-top-width: 1px !important;
-    border-bottom-color: #5fa2dd !important;
+    border-bottom-color: #21502a !important;
     border-bottom-width: 1px !important;
 }
 /* C:/wamp64/www/Plani/ext/modern/theme-neptune/sass/etc/mixins/border-management.scss:56 */
 .x-panel-outer-border-tbl {
-    border-top-color: #5fa2dd !important;
+    border-top-color: #21502a !important;
     border-top-width: 1px !important;
-    border-bottom-color: #5fa2dd !important;
+    border-bottom-color: #21502a !important;
     border-bottom-width: 1px !important;
-    border-left-color: #5fa2dd !important;
+    border-left-color: #21502a !important;
     border-left-width: 1px !important;
 }
 /* C:/wamp64/www/Plani/ext/modern/theme-neptune/sass/etc/mixins/border-management.scss:64 */
 .x-panel-outer-border-tr {
-    border-top-color: #5fa2dd !important;
+    border-top-color: #21502a !important;
     border-top-width: 1px !important;
-    border-right-color: #5fa2dd !important;
+    border-right-color: #21502a !important;
     border-right-width: 1px !important;
 }
 /* C:/wamp64/www/Plani/ext/modern/theme-neptune/sass/etc/mixins/border-management.scss:70 */
 .x-panel-outer-border-trl {
-    border-top-color: #5fa2dd !important;
+    border-top-color: #21502a !important;
     border-top-width: 1px !important;
-    border-right-color: #5fa2dd !important;
+    border-right-color: #21502a !important;
     border-right-width: 1px !important;
-    border-left-color: #5fa2dd !important;
+    border-left-color: #21502a !important;
     border-left-width: 1px !important;
 }
 /* C:/wamp64/www/Plani/ext/modern/theme-neptune/sass/etc/mixins/border-management.scss:78 */
 .x-panel-outer-border-trb {
-    border-top-color: #5fa2dd !important;
+    border-top-color: #21502a !important;
     border-top-width: 1px !important;
-    border-right-color: #5fa2dd !important;
+    border-right-color: #21502a !important;
     border-right-width: 1px !important;
-    border-bottom-color: #5fa2dd !important;
+    border-bottom-color: #21502a !important;
     border-bottom-width: 1px !important;
 }
 /* C:/wamp64/www/Plani/ext/modern/theme-neptune/sass/etc/mixins/border-management.scss:86 */
 .x-panel-outer-border-trbl {
-    border-color: #5fa2dd !important;
+    border-color: #21502a !important;
     border-width: 1px !important;
 }
 /* C:/wamp64/www/Plani/ext/modern/theme-neptune/sass/var/Button.scss:556 */
@@ -5537,7 +5537,7 @@ html.x-big {
 .x-button-action {
     color: #f0f0f0;
     border-color: #3d8ed6;
-    background-color: #5fa2dd;
+    background-color: #21502a;
     background-image: none;
 }
 /* C:/wamp64/www/Plani/ext/modern/theme-neptune/sass/var/Button.scss:585 */
@@ -5855,7 +5855,7 @@ html.x-big {
  * @class Ext.MessageBox
  */
     margin: 0.5em;
-    border: 2px solid #5fa2dd;
+    border: 2px solid #21502a;
     background-color: #fff;
     border-width: 2px !important;
 }
@@ -5874,7 +5874,7 @@ html.x-big {
 /* C:/wamp64/www/Plani/ext/modern/theme-neptune/sass/src/MessageBox.scss:32 */
 .x-msgbox-title {
     padding-top: calc(0.46rem - 2px);
-    background-color: #5fa2dd;
+    background-color: #21502a;
 }
 /* C:/wamp64/www/Plani/ext/modern/theme-neptune/sass/src/MessageBox.scss:36 */
 .x-big .x-msgbox-title {
@@ -5898,7 +5898,7 @@ html.x-big {
  * @class Ext.Toast
  */
     margin: 0.5em;
-    border: 0.15em solid #5fa2dd;
+    border: 0.15em solid #21502a;
     -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0 0.1em 0.5em;
     -moz-box-shadow: rgba(0, 0, 0, 0.4) 0 0.1em 0.5em;
     box-shadow: rgba(0, 0, 0, 0.4) 0 0.1em 0.5em;
@@ -6668,7 +6668,7 @@ html.x-big {
 .x-column-options-visibleindicator {
     font-family: FontAwesome;
     line-height: 1;
-    color: #5fa2dd;
+    color: #21502a;
 }
 /* C:/wamp64/www/Plani/ext/modern/theme-base/sass/etc/mixins/font-icon.scss:125 */
 .x-column-options-visibleindicator:before {
@@ -6716,7 +6716,7 @@ html.x-big {
 }
 /* C:/wamp64/www/Plani/ext/modern/theme-neptune/sass/src/grid/Grid.scss:153 */
 .x-column-options-grouped .x-column-options-groupindicator {
-    color: #5fa2dd;
+    color: #21502a;
 }
 /* C:/wamp64/www/Plani/ext/modern/theme-neptune/sass/src/grid/Grid.scss:157 */
 .x-grid-multiselection-column {
@@ -6824,7 +6824,7 @@ html.x-big {
 }
 /* C:/wamp64/www/Plani/ext/modern/theme-neptune/sass/src/tab/Tab.scss:239 */
 .x-tab.x-tab-active {
-    color: #5fa2dd;
+    color: #21502a;
     background-color: #fff;
     background-image: none;
     border-color: #fff;
@@ -6885,7 +6885,7 @@ html.x-big {
 }
 /* C:/wamp64/www/Plani/ext/modern/theme-neptune/sass/src/tab/Bar.scss:35 */
 .x-tabbar {
-    background-color: #5fa2dd;
+    background-color: #21502a;
     padding: 0.46rem 0.5rem;
 }
 /* C:/wamp64/www/Plani/ext/modern/theme-neptune/sass/src/tab/Bar.scss:40 */

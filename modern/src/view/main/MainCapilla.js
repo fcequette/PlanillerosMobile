@@ -20,20 +20,20 @@ Ext.define('Plani.view.main.MainCapilla', {
       ,sortable:false
 
       //,flex: 1
-      ,width:150
+      ,width:window.innerWidth *0.333
     },{
       text: 'Equipo'
       ,name: 'equipo'
       ,dataIndex : 'equipo'
       //,flex: 1
       ,sortable:false
-      ,width:150
+      ,width:window.innerWidth *0.333
     },{
       text: ' Amarillas'
       ,name: 'cantamarillas'
       ,dataIndex : 'cantamarillas'
       //,flex: 1
-      ,width:80
+      ,width:window.innerWidth *0.333
     }]
   	// }]
 });

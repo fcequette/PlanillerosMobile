@@ -38,6 +38,8 @@ Ext.override(Ext, {
     return Ext.ComponentQuery.query(selector)[0];
   }
 });
+
+
 // Ext.define('Plani.override.form.action.Submit',{
 // 	override: 'Ext.form.action.Submit',
 // 	doSubmit: function () {
@@ -111,3 +113,4 @@ Ext.override(Ext, {
 // 		}
 // 	}
 // });
+// @define Ext.MessageBox, Ext.Msg

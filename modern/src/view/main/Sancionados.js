@@ -51,7 +51,11 @@ Ext.define('Plani.view.main.Sancionados', {
                       ,url:'http://dario-casa.sytes.net/api/partidosfecha'
                       ,jsonSubmit:true
                       ,defaults:{
-                            margin: '30 0'
+                        defaultPhonePickerConfig : {
+                          doneButton : 'Aceptar',
+                          cancelButton : 'Cancelar'
+                        }
+                        , margin: '30 0'
                       }
                       ,items:[{
                         xtype:'selectfield'
@@ -78,7 +82,7 @@ Ext.define('Plani.view.main.Sancionados', {
                       },{
                          xtype:'button'
                         ,text:'Sancionados'
-                        ,style: 'background-color:#5fa2dd;height:50px;color:#FFF;font-size:20px'
+                        ,style: 'background-color:#21502a;height:50px;color:#FFF;font-size:20px'
                         ,handler: function(btn,e){
                           console.log('parametros',btn.up('#formVuelven').getValues());
                           Ext.getStore('Sancionados').load({params:btn.up('#formVuelven').getValues()});//TODO Pasar parametros

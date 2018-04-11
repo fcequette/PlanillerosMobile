@@ -13,9 +13,10 @@ Ext.define('Plani.view.main.MainController', {
         Ext.Msg.confirm('Confirm', 'Are you sure?', 'onConfirm', this);
     },
     onselectfieldChange:function(cmb,e){
+      console.log('selectfieldchange');
       Ext.getStore(cmb.namecmb).removeAll();
       Ext.getStore(cmb.namecmb).load({params:{param:cmb.getValue()}});
-    },    
+    },
 
     onConfirm: function (choice) {
         if (choice === 'yes') {

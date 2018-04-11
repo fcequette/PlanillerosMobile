@@ -26,14 +26,14 @@ Ext.define('Plani.view.main.MainSancionados', {
           text: 'Jugador'
           ,name: 'jugador_nombre'
           ,dataIndex: 'jugador_nombre'
-          ,width:150
+          ,width:window.innerWidth *0.333
           ,sortable:false
 
         },{
           text: 'Equipo'
           ,name: 'equipo_nombre'
           ,dataIndex: 'equipo_nombre'
-          ,width:150
+          ,width:window.innerWidth *0.333
           ,sortable:false
 
         },{
@@ -42,12 +42,13 @@ Ext.define('Plani.view.main.MainSancionados', {
           ,dataIndex: 'sancionados_vuelve'
           ,width:80
           ,sortable:false
+          ,hidden:true
 
         },{
           text: 'Sancion'
           ,name: 'Nombre jugador'
           ,dataIndex: 'sancion'
-          ,width:80
+          ,width:window.innerWidth *0.333
           ,sortable:false
 
         }]
