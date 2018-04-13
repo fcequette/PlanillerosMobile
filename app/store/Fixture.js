@@ -16,7 +16,7 @@ Ext.define('Plani.store.Fixture', {
 ]
 	,proxy: {
 		 type: 'ajax'
-		,url: 'http://127.0.0.1:8080/fixture?_dc=1516139380847&torneo_id=1&categoria_id=1&zona_id=1&page=1&start=0&limit=25'
+		,url: 'http://dario-casa.sytes.net/api/fixture?_dc=1516139380847&torneo_id=1&categoria_id=1&zona_id=1&page=1&start=0&limit=25'
 		,method: 'GET'
 	 	,reader: {
 	 			type: 'json',

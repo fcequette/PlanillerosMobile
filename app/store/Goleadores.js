@@ -5,7 +5,7 @@ Ext.define('Plani.store.Goleadores', {
 	//,autoLoad:true
 	,proxy: {
 		 type: 'ajax'
-	,url: 'http://127.0.0.1:8080/goleadores'
+	,url: 'http://dario-casa.sytes.net/api/goleadores'
 //,url: 'https://api.myjson.com/bins/cz81f'
 		,method: 'GET'
 	 	,reader: {

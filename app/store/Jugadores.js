@@ -4,7 +4,7 @@ Ext.define('Plani.store.Jugadores', {
 	,autoLoad:true
 	,proxy: {
 		 type: 'ajax'
-	 ,url: 'http://127.0.0.1:8080/jugador'
+	 ,url: 'http://dario-casa.sytes.net/api/jugador'
 	 //,url: 'http://localhost:8080/jugadores'
 
 	//,url: 'https://api.myjson.com/bins/kz1m3'

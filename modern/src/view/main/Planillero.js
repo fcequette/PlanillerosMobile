@@ -42,7 +42,7 @@ Ext.define('Plani.view.main.Planillero', {
                       xtype:'formpanel'
                       ,bodyPadding:20
                       ,itemId:'cardPlanillero1'
-                      ,url:'http://127.0.0.1:8080/partidosfecha'
+                      ,url:'http://dario-casa.sytes.net/api/partidosfecha'
                       ,jsonSubmit:true
                       ,defaults:{
                         defaultPhonePickerConfig : {
@@ -173,7 +173,7 @@ Ext.define('Plani.view.main.Planillero', {
                              fecha_id:fecha,
                              fixture_id:record.data.fixture_id,
                              padding:1,
-                             url:'http://127.0.0.1:8080/goleadores',
+                             url:'http://dario-casa.sytes.net/api/goleadores',
                              items:[{
                                xtype:'toolbar'
                                ,dock: 'top'
@@ -255,7 +255,7 @@ Ext.define('Plani.view.main.Planillero', {
 
                   												};
                   												Ext.Ajax.request({
-                  												   url: 'http://127.0.0.1:8080/nosepresenta'
+                  												   url: 'http://dario-casa.sytes.net/api/nosepresenta'
                   												  ,jsonData: myObj
                   												  ,callback: function( opt, success, response ) {
                   													var json = Ext.decode(response.responseText);
@@ -709,7 +709,7 @@ Ext.define('Plani.view.main.Planillero', {
                                          }
                                          console.log('este es objeto',JSON.stringify(obj));
                                          Ext.Ajax.request({
-                                              url: 'http://127.0.0.1:8080/goleadores',
+                                              url: 'http://dario-casa.sytes.net/api/goleadores',
                                               method: 'POST',
                                               params:JSON.stringify(obj),
                                              // params: {JSON.stringify(obj)
@@ -753,7 +753,7 @@ Ext.define('Plani.view.main.Planillero', {
                                  equipo_id:record.data.equipo2_id,
                                  fecha_id:record.data.fecha_id,
                                  fixture_id:record.data.fixture_id,
-                                 url:'http://127.0.0.1:8080/goleadores',
+                                 url:'http://dario-casa.sytes.net/api/goleadores',
                                  items:[{
                                    xtype:'toolbar'
                                    ,dock: 'top'
@@ -839,7 +839,7 @@ Ext.define('Plani.view.main.Planillero', {
 
     												};
     												Ext.Ajax.request({
-    												   url: 'http://127.0.0.1:8080/nosepresenta'
+    												   url: 'http://dario-casa.sytes.net/api/nosepresenta'
     												  ,jsonData: myObj
     												  ,callback: function( opt, success, response ) {
     													var json = Ext.decode(response.responseText);
@@ -1295,7 +1295,7 @@ Ext.define('Plani.view.main.Planillero', {
                                                // expulsados:"'"+JSON.stringify(expulsados)+"'"
                                              }
                                              Ext.Ajax.request({
-                                                  url: 'http://127.0.0.1:8080/goleadores',
+                                                  url: 'http://dario-casa.sytes.net/api/goleadores',
                                                   method: 'POST',
                                                   params:JSON.stringify(obj),
                                                  // params: {

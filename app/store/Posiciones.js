@@ -10,7 +10,7 @@ Ext.define('Plani.store.Posiciones', {
 
     proxy: {
       type: 'ajax'
-      ,url: 'http://127.0.0.1:8080/posiciones'
+      ,url: 'http://dario-casa.sytes.net/api/posiciones'
       ,method: 'GET'
         ,reader: {
             type: 'json',

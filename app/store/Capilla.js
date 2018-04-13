@@ -4,7 +4,7 @@ Ext.define('Plani.store.Capilla', {
 	//,model:'Torneo.model.Amonestado'
 	,proxy: {
 		 	type: 'ajax'
-		 	,url: 'http://127.0.0.1:8080/encapilla'
+		 	,url: 'http://dario-casa.sytes.net/api/encapilla'
 			//,url: 'https://api.myjson.com/bins/tnlgr'
 			,method: 'GET'
 	 		,reader: {
