@@ -360,7 +360,7 @@ Ext.define('Plani.view.main.Planillero', {
                                        }
                                        Ext.ComponentQuery.query('#btnSavePlani')[0].fireEvent('tap',Ext.ComponentQuery.query('#btnSavePlani')[0]);
 									                     Ext.ComponentQuery.query('#gridGolE1')[0].render();
-                                       Ext.ComponentQuery.query('#btnGol1')[0].fireEvent('tap',Ext.ComponentQuery.query('#btnGol1')[0]);
+                                       //Ext.ComponentQuery.query('#btnGol1')[0].fireEvent('tap',Ext.ComponentQuery.query('#btnGol1')[0]);
 
                                        // Ext.ComponentQuery.query('#gridGolE1')[0].getStore().load();
                                        // Ext.getStore('Goleadores').load({params:{fixture_id:fixture_id,fecha_id:fecha_id,equipo_id:equipo_id}}); //TODO
@@ -473,7 +473,7 @@ Ext.define('Plani.view.main.Planillero', {
                                      }
                                      Ext.ComponentQuery.query('#btnSavePlani')[0].fireEvent('tap',Ext.ComponentQuery.query('#btnSavePlani')[0]);
                                      Ext.ComponentQuery.query('#gridAmoE1')[0].render();
-                                     Ext.ComponentQuery.query('#btnAmo1')[0].fireEvent('tap',Ext.ComponentQuery.query('#btnAmo1')[0]);
+                                     //Ext.ComponentQuery.query('#btnAmo1')[0].fireEvent('tap',Ext.ComponentQuery.query('#btnAmo1')[0]);
                                     //Ext.ComponentQuery.query('#gridAmoE1')[0].getStore().load();
                                    // Ext.getStore('Amonestados').load({params:{fixture_id:fixture_id,fecha_id:fecha_id,equipo_id:equipo_id}});
                                      //combobox.reset();
@@ -591,7 +591,7 @@ Ext.define('Plani.view.main.Planillero', {
                                      Ext.ComponentQuery.query('#btnSavePlani')[0].fireEvent('tap',Ext.ComponentQuery.query('#btnSavePlani')[0]);
                                      Ext.ComponentQuery.query('#gridExpE1')[0].render();
                                     // Ext.ComponentQuery.query('#gridExpE1')[0].getStore().load();
-                                    Ext.ComponentQuery.query('#btnExp1')[0].fireEvent('tap',Ext.ComponentQuery.query('#btnExp1')[0]);
+                                    //Ext.ComponentQuery.query('#btnExp1')[0].fireEvent('tap',Ext.ComponentQuery.query('#btnExp1')[0]);
                                     // Ext.getStore('Expulsados').load({params:{fixture_id:fixture_id,fecha_id:fecha_id,equipo_id:equipo_id}});
                                     // combobox.reset();
                                  }
@@ -722,11 +722,11 @@ Ext.define('Plani.view.main.Planillero', {
                                              // jsonData:true,
                                              //paramsAsJson:true,
                                               success: function(response){
-                                                // Ext.Msg.show({
-                                                //    title: 'CORRECTO'
-                                                //   ,message: 'Se grabaron correctamente los cambios'
-                                                //   ,buttons: Ext.Msg.OK
-                                                // });
+                                                Ext.Msg.show({
+                                                   title: 'CORRECTO'
+                                                  ,message: 'Se grabaron correctamente los cambios'
+                                                  ,buttons: Ext.Msg.OK
+                                                });
                                                 console.log('grabo');
 
                                               }
@@ -946,7 +946,7 @@ Ext.define('Plani.view.main.Planillero', {
                                       }
                                       Ext.ComponentQuery.query('#btnSavePlani2')[0].fireEvent('tap',Ext.ComponentQuery.query('#btnSavePlani2')[0]);
                                       Ext.ComponentQuery.query('#gridGolE2')[0].render();
-                                      Ext.ComponentQuery.query('#btnGol2')[0].fireEvent('tap',Ext.ComponentQuery.query('#btnGol2')[0]);
+                                      //Ext.ComponentQuery.query('#btnGol2')[0].fireEvent('tap',Ext.ComponentQuery.query('#btnGol2')[0]);
 
 
 
@@ -1063,7 +1063,7 @@ Ext.define('Plani.view.main.Planillero', {
                                            }
                                            Ext.ComponentQuery.query('#btnSavePlani2')[0].fireEvent('tap',Ext.ComponentQuery.query('#btnSavePlani2')[0]);
                                            Ext.ComponentQuery.query('#gridAmoE2')[0].render();
-                                           Ext.ComponentQuery.query('#btnAmo2')[0].fireEvent('tap',Ext.ComponentQuery.query('#btnAmo2')[0]);
+                                           //Ext.ComponentQuery.query('#btnAmo2')[0].fireEvent('tap',Ext.ComponentQuery.query('#btnAmo2')[0]);
                                            //combobox.reset();
                                           }
                                         //}
@@ -1181,7 +1181,7 @@ Ext.define('Plani.view.main.Planillero', {
                                          }
                                          Ext.ComponentQuery.query('#btnSavePlani2')[0].fireEvent('tap',Ext.ComponentQuery.query('#btnSavePlani2')[0]);
                                          Ext.ComponentQuery.query('#gridExpE2')[0].render();
-                                         Ext.ComponentQuery.query('#btnExp2')[0].fireEvent('tap',Ext.ComponentQuery.query('#btnExp2')[0]);
+                                         //Ext.ComponentQuery.query('#btnExp2')[0].fireEvent('tap',Ext.ComponentQuery.query('#btnExp2')[0]);
                                          //combobox.reset();
                                      }
 
@@ -1308,11 +1308,11 @@ Ext.define('Plani.view.main.Planillero', {
                                                  // jsonData:true,
                                                  //paramsAsJson:true,
                                                   success: function(response){
-                                                    // Ext.Msg.show({
-                                                    //    title: 'CORRECTO'
-                                                    //   ,message: 'Se grabaron correctamente los cambios'
-                                                    //   ,buttons: Ext.Msg.OK
-                                                    // });
+                                                    Ext.Msg.show({
+                                                       title: 'CORRECTO'
+                                                      ,message: 'Se grabaron correctamente los cambios'
+                                                      ,buttons: Ext.Msg.OK
+                                                    });
                                                     console.log('grabo');
 
                                                   }
