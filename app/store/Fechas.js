@@ -3,7 +3,7 @@ Ext.define('Plani.store.Fechas', {
 	,storeId: 'Fechas'
 	,proxy: {
 		 type: 'ajax'
-	,url: 'http://dario-casa.sytes.net/api/fecha'
+	,url: 'http://127.0.0.1:8080/fecha'
 	//,url: 'http://localhost:8080/zonas'
 
 	//,url: 'https://api.myjson.com/bins/byt07'

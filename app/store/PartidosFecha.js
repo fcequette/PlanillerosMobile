@@ -14,7 +14,7 @@ Ext.define('Plani.store.PartidosFecha', {
 ]
 	,proxy: {
 		 type: 'ajax'
-		 ,url: 'http://dario-casa.sytes.net/api/partidosfecha'
+		 ,url: 'http://127.0.0.1:8080/partidosfecha'
 		//,url: 'https://api.myjson.com/bins/6skon'
 		,paramsAsJson:true
 		,actionMethods : {

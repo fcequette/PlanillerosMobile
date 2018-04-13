@@ -4,7 +4,7 @@ Ext.define('Plani.store.Sancionados', {
 	//,model:'Torneo.model.Amonestado'
 	,proxy: {
 		 	type: 'ajax'
-		 	,url: 'http://dario-casa.sytes.net/api/sancionados'
+		 	,url: 'http://127.0.0.1:8080/sancionados'
 			//,url: 'https://api.myjson.com/bins/tnlgr'
 			,method: 'GET'
 	 		,reader: {

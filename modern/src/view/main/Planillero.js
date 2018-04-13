@@ -42,7 +42,7 @@ Ext.define('Plani.view.main.Planillero', {
                       xtype:'formpanel'
                       ,bodyPadding:20
                       ,itemId:'cardPlanillero1'
-                      ,url:'http://dario-casa.sytes.net/api/partidosfecha'
+                      ,url:'http://127.0.0.1:8080/partidosfecha'
                       ,jsonSubmit:true
                       ,defaults:{
                         defaultPhonePickerConfig : {
@@ -173,7 +173,7 @@ Ext.define('Plani.view.main.Planillero', {
                              fecha_id:fecha,
                              fixture_id:record.data.fixture_id,
                              padding:1,
-                             url:'http://dario-casa.sytes.net/api/goleadores',
+                             url:'http://127.0.0.1:8080/goleadores',
                              items:[{
                                xtype:'toolbar'
                                ,dock: 'top'
@@ -182,8 +182,10 @@ Ext.define('Plani.view.main.Planillero', {
                                  ,text: '<a style="font-size:13px">Goleadores</a>'
                                  ,style:'background-color:#FFF'
                                  ,width:window.innerWidth*0.266
+                                 ,itemId:'btnGol1'
                                  ,padding:3
-                                 ,handler:function(btn,e){
+                                 ,listeners:{
+                                   tap:function(btn,e){
                                    btn.up().up().down('#fgol').show();
                                    btn.up().up().down('#famo').hide();
                                    btn.up().up().down('#fexp').hide();
@@ -191,31 +193,37 @@ Ext.define('Plani.view.main.Planillero', {
 								                   Ext.getStore('Goleadores').load({params:{fixture_id:fixture_id,fecha_id:fecha,equipo_id:id_e1}});
 								                 	 Ext.getStore('Jugadores-Equipo').clearFilter();
                                  }
+                               }
                                },{
                                  xtype:'button'
                                  ,padding:3
                                  ,width:window.innerWidth*0.266
                                  ,text: '<a style="font-size:13px">Amonestados</a>'
                                  ,style:'background-color:#FFF'
-                                 ,handler:function(btn,e){
-                                   btn.up().up().down('#famo').show();
-                                   btn.up().up().down('#fgol').setHidden(true);
-                                   btn.up().up().down('#fexp').setHidden(true);
-                                   btn.up().up().down('#fpen').hide();
-									                 Ext.getStore('Amonestados').load({params:{fixture_id:fixture_id,fecha_id:fecha,equipo_id:id_e1}});
-                									 Ext.getStore('Jugadores-Equipo').filterBy(function(rec){
-                											if(rec.get('jugador_id') !="0"){
-                												return rec;
-                											}
-                									  });
+                                 ,itemId:'btnAmo1'
+                                 ,listeners:{
+                                     tap:function(btn,e){
+                                       btn.up().up().down('#famo').show();
+                                       btn.up().up().down('#fgol').setHidden(true);
+                                       btn.up().up().down('#fexp').setHidden(true);
+                                       btn.up().up().down('#fpen').hide();
+    									                 Ext.getStore('Amonestados').load({params:{fixture_id:fixture_id,fecha_id:fecha,equipo_id:id_e1}});
+                    									 Ext.getStore('Jugadores-Equipo').filterBy(function(rec){
+                    											if(rec.get('jugador_id') !="0"){
+                    												return rec;
+                    											}
+                    									  });
+                                     }
                                  }
                                },{
                                  xtype:'button'
                                  ,style:'background-color:#FFF'
                                  ,padding:3
                                  ,width:window.innerWidth*0.266
+                                 ,itemId:'btnExp1'
                                  ,text: '<a style="font-size:13px">Expulsados</a>'
-                                 ,handler:function(btn,e){
+                                 ,listeners:{
+                                   tap:function(btn,e){
                                    btn.up().up().down('#fexp').show();
                                    btn.up().up().down('#famo').hide();
                                    btn.up().up().down('#fgol').hide();
@@ -229,8 +237,8 @@ Ext.define('Plani.view.main.Planillero', {
                 												console.log('En Contra');
                 											}
                 									  });
-
 								                  }
+                                }
                               },{
 								                 xtype: 'button'
 								                ,text: 'A'
@@ -247,7 +255,7 @@ Ext.define('Plani.view.main.Planillero', {
 
                   												};
                   												Ext.Ajax.request({
-                  												   url: 'http://dario-casa.sytes.net/api/nosepresenta'
+                  												   url: 'http://127.0.0.1:8080/nosepresenta'
                   												  ,jsonData: myObj
                   												  ,callback: function( opt, success, response ) {
                   													var json = Ext.decode(response.responseText);
@@ -352,7 +360,10 @@ Ext.define('Plani.view.main.Planillero', {
                                        }
                                        Ext.ComponentQuery.query('#btnSavePlani')[0].fireEvent('tap',Ext.ComponentQuery.query('#btnSavePlani')[0]);
 									                     Ext.ComponentQuery.query('#gridGolE1')[0].render();
-                                        Ext.ComponentQuery.query('#gridGolE1')[0].getStore().load();
+                                       Ext.ComponentQuery.query('#btnGol1')[0].fireEvent('tap',Ext.ComponentQuery.query('#btnGol1')[0]);
+
+                                       // Ext.ComponentQuery.query('#gridGolE1')[0].getStore().load();
+                                       // Ext.getStore('Goleadores').load({params:{fixture_id:fixture_id,fecha_id:fecha_id,equipo_id:equipo_id}}); //TODO
                                       // combobox.reset();
                                     }
                                }]
@@ -462,7 +473,9 @@ Ext.define('Plani.view.main.Planillero', {
                                      }
                                      Ext.ComponentQuery.query('#btnSavePlani')[0].fireEvent('tap',Ext.ComponentQuery.query('#btnSavePlani')[0]);
                                      Ext.ComponentQuery.query('#gridAmoE1')[0].render();
-                                    Ext.ComponentQuery.query('#gridAmoE1')[0].getStore().load();
+                                     Ext.ComponentQuery.query('#btnAmo1')[0].fireEvent('tap',Ext.ComponentQuery.query('#btnAmo1')[0]);
+                                    //Ext.ComponentQuery.query('#gridAmoE1')[0].getStore().load();
+                                   // Ext.getStore('Amonestados').load({params:{fixture_id:fixture_id,fecha_id:fecha_id,equipo_id:equipo_id}});
                                      //combobox.reset();
                                     }
                                  }]
@@ -577,7 +590,9 @@ Ext.define('Plani.view.main.Planillero', {
                                      }
                                      Ext.ComponentQuery.query('#btnSavePlani')[0].fireEvent('tap',Ext.ComponentQuery.query('#btnSavePlani')[0]);
                                      Ext.ComponentQuery.query('#gridExpE1')[0].render();
-                                     Ext.ComponentQuery.query('#gridExpE1')[0].getStore().load();
+                                    // Ext.ComponentQuery.query('#gridExpE1')[0].getStore().load();
+                                    Ext.ComponentQuery.query('#btnExp1')[0].fireEvent('tap',Ext.ComponentQuery.query('#btnExp1')[0]);
+                                    // Ext.getStore('Expulsados').load({params:{fixture_id:fixture_id,fecha_id:fecha_id,equipo_id:equipo_id}});
                                     // combobox.reset();
                                  }
 
@@ -588,6 +603,7 @@ Ext.define('Plani.view.main.Planillero', {
                                      ,store: 'Expulsados'
                                      ,emptyText:'No hay expulsados cargados'
                                      ,height:200
+                                     ,hideHeaders: true
                                      ,titleBar: { hidden: true }
                                      ,columns:[{
                                        text: 'Id de jugador'
@@ -693,7 +709,7 @@ Ext.define('Plani.view.main.Planillero', {
                                          }
                                          console.log('este es objeto',JSON.stringify(obj));
                                          Ext.Ajax.request({
-                                              url: 'http://dario-casa.sytes.net/api/goleadores',
+                                              url: 'http://127.0.0.1:8080/goleadores',
                                               method: 'POST',
                                               params:JSON.stringify(obj),
                                              // params: {JSON.stringify(obj)
@@ -706,11 +722,13 @@ Ext.define('Plani.view.main.Planillero', {
                                              // jsonData:true,
                                              //paramsAsJson:true,
                                               success: function(response){
-                                                Ext.Msg.show({
-                                                   title: 'CORRECTO'
-                                                  ,message: 'Se grabaron correctamente los cambios'
-                                                  ,buttons: Ext.Msg.OK
-                                                });
+                                                // Ext.Msg.show({
+                                                //    title: 'CORRECTO'
+                                                //   ,message: 'Se grabaron correctamente los cambios'
+                                                //   ,buttons: Ext.Msg.OK
+                                                // });
+                                                console.log('grabo');
+
                                               }
                                               ,failure:function(form, action){
                                                 Ext.Msg.show({
@@ -735,7 +753,7 @@ Ext.define('Plani.view.main.Planillero', {
                                  equipo_id:record.data.equipo2_id,
                                  fecha_id:record.data.fecha_id,
                                  fixture_id:record.data.fixture_id,
-                                 url:'http://dario-casa.sytes.net/api/goleadores',
+                                 url:'http://127.0.0.1:8080/goleadores',
                                  items:[{
                                    xtype:'toolbar'
                                    ,dock: 'top'
@@ -743,60 +761,68 @@ Ext.define('Plani.view.main.Planillero', {
                                       xtype:'button'
                                      ,text: '<a style="font-size:13px">Goleadores</a>'
                                      ,style:'background-color:#FFF'
+                                     ,itemId:'btnGol2'
                                      ,padding:3
                                      ,width:window.innerWidth*0.266
-                                     ,handler:function(btn,e){
-                                       btn.up().up().down('#fgol2').show();
-                                       btn.up().up().down('#famo2').hide();
-                                       btn.up().up().down('#fexp2').hide();
-                                       btn.up().up().down('#fpen2').hide();
-                									    Ext.getStore('Goleadores2').load({params:{fixture_id:fixture_id,fecha_id:fecha,equipo_id:id_e2}});
-										                  Ext.getStore('Jugadores-Equipo').clearFilter();
-                                     }
+                                     ,listeners:{
+                                       tap:function(btn,e){
+                                           btn.up().up().down('#fgol2').show();
+                                           btn.up().up().down('#famo2').hide();
+                                           btn.up().up().down('#fexp2').hide();
+                                           btn.up().up().down('#fpen2').hide();
+                    									    Ext.getStore('Goleadores2').load({params:{fixture_id:fixture_id,fecha_id:fecha,equipo_id:id_e2}});
+    										                  Ext.getStore('Jugadores-Equipo').clearFilter();
+                                         }
+                                       }
                                    },{
                                      xtype:'button'
                                      ,padding:3
                                      ,width:window.innerWidth*0.266
                                      ,text: '<a style="font-size:13px">Amonestados</a>'
                                      ,style:'background-color:#FFF'
-                                     ,handler:function(btn,e){
-                                       btn.up().up().down('#famo2').show();
-                                       btn.up().up().down('#fgol2').setHidden(true);
-                                       btn.up().up().down('#fexp2').setHidden(true);
-                                       btn.up().up().down('#fpen2').hide();
-									                     Ext.getStore('Amonestados2').load({params:{fixture_id:fixture_id,fecha_id:fecha,equipo_id:id_e2}});
-                    										Ext.getStore('Jugadores-Equipo').filterBy(function(rec){
-                    											if(rec.get('jugador_id') !="0"){
-                    												console.log('lalala');
-                    												return rec;
-                    											}else{
-                    												console.log('555');
-                    											}
-                    									  });
-
+                                     ,itemId:'btnAmo2'
+                                     ,listeners:{
+                                       tap:function(btn,e){
+                                         btn.up().up().down('#famo2').show();
+                                         btn.up().up().down('#fgol2').setHidden(true);
+                                         btn.up().up().down('#fexp2').setHidden(true);
+                                         btn.up().up().down('#fpen2').hide();
+  									                     Ext.getStore('Amonestados2').load({params:{fixture_id:fixture_id,fecha_id:fecha,equipo_id:id_e2}});
+                      										Ext.getStore('Jugadores-Equipo').filterBy(function(rec){
+                      											if(rec.get('jugador_id') !="0"){
+                      												console.log('lalala');
+                      												return rec;
+                      											}else{
+                      												console.log('555');
+                      											}
+                      									  });
+                                        }
                                      }
                                    },{
                                      xtype:'button'
                                      ,style:'background-color:#FFF'
                                      ,padding:3
                                      ,width:window.innerWidth*0.266
+                                     ,itemId:'btnExp2'
                                      ,text: '<a style="font-size:13px">Expulsados</a>'
-                                     ,handler:function(btn,e){
+                                     ,listeners:{
+                                       tap:function(btn,e){
                                        btn.up().up().down('#fexp2').show();
                                        btn.up().up().down('#famo2').hide();
                                        btn.up().up().down('#fgol2').hide();
                                        btn.up().up().down('#fpen2').hide();
-									   Ext.getStore('Expulsados2').load({params:{fixture_id:fixture_id,fecha_id:fecha,equipo_id:id_e2}});
-									   Ext.getStore('Jugadores-Equipo').filterBy(function(rec){
-											if(rec.get('jugador_id') !="0"){
-												console.log('lalala');
-												return rec;
-											}else{
-												console.log('555');
-											}
-									  });
+                  									   Ext.getStore('Expulsados2').load({params:{fixture_id:fixture_id,fecha_id:fecha,equipo_id:id_e2}});
+                  									   Ext.getStore('Jugadores-Equipo').filterBy(function(rec){
+                  											if(rec.get('jugador_id') !="0"){
+                  												console.log('lalala');
+                  												return rec;
+                  											}else{
+                  												console.log('555');
+                  											}
+                  									  });
 
                                      }
+                                   }
                 },{
 									   xtype:'button',
 								    text:'A'
@@ -813,7 +839,7 @@ Ext.define('Plani.view.main.Planillero', {
 
     												};
     												Ext.Ajax.request({
-    												   url: 'http://dario-casa.sytes.net/api/nosepresenta'
+    												   url: 'http://127.0.0.1:8080/nosepresenta'
     												  ,jsonData: myObj
     												  ,callback: function( opt, success, response ) {
     													var json = Ext.decode(response.responseText);
@@ -920,7 +946,10 @@ Ext.define('Plani.view.main.Planillero', {
                                       }
                                       Ext.ComponentQuery.query('#btnSavePlani2')[0].fireEvent('tap',Ext.ComponentQuery.query('#btnSavePlani2')[0]);
                                       Ext.ComponentQuery.query('#gridGolE2')[0].render();
-                                      Ext.ComponentQuery.query('#gridGolE2')[0].getStore().load();
+                                      Ext.ComponentQuery.query('#btnGol2')[0].fireEvent('tap',Ext.ComponentQuery.query('#btnGol2')[0]);
+
+
+
                                       //combobox.reset();
                                      }
                                     // }
@@ -1034,7 +1063,7 @@ Ext.define('Plani.view.main.Planillero', {
                                            }
                                            Ext.ComponentQuery.query('#btnSavePlani2')[0].fireEvent('tap',Ext.ComponentQuery.query('#btnSavePlani2')[0]);
                                            Ext.ComponentQuery.query('#gridAmoE2')[0].render();
-                                           Ext.ComponentQuery.query('#gridAmoE2')[0].getStore().load();
+                                           Ext.ComponentQuery.query('#btnAmo2')[0].fireEvent('tap',Ext.ComponentQuery.query('#btnAmo2')[0]);
                                            //combobox.reset();
                                           }
                                         //}
@@ -1152,7 +1181,7 @@ Ext.define('Plani.view.main.Planillero', {
                                          }
                                          Ext.ComponentQuery.query('#btnSavePlani2')[0].fireEvent('tap',Ext.ComponentQuery.query('#btnSavePlani2')[0]);
                                          Ext.ComponentQuery.query('#gridExpE2')[0].render();
-                                         Ext.ComponentQuery.query('#gridExpE2')[0].getStore().load();
+                                         Ext.ComponentQuery.query('#btnExp2')[0].fireEvent('tap',Ext.ComponentQuery.query('#btnExp2')[0]);
                                          //combobox.reset();
                                      }
 
@@ -1163,6 +1192,7 @@ Ext.define('Plani.view.main.Planillero', {
                                          ,store: 'Expulsados2'
                                          ,emptyText:'No hay expulsados cargados'
                                          ,height:200
+                                         ,hideHeaders: true
                                          ,titleBar: { hidden: true }
                                          ,columns:[{
                                            text: 'Id de jugador'
@@ -1177,7 +1207,7 @@ Ext.define('Plani.view.main.Planillero', {
                                            ,name: 'Nombre jugador'
                                            ,dataIndex: 'text'
                                            ,sortable:false
-                                           ,width:window.innerWidth*0.8
+                                           ,width:window.innerWidth*0.75
 
                                          },{
                                            cell: {
@@ -1265,7 +1295,7 @@ Ext.define('Plani.view.main.Planillero', {
                                                // expulsados:"'"+JSON.stringify(expulsados)+"'"
                                              }
                                              Ext.Ajax.request({
-                                                  url: 'http://dario-casa.sytes.net/api/goleadores',
+                                                  url: 'http://127.0.0.1:8080/goleadores',
                                                   method: 'POST',
                                                   params:JSON.stringify(obj),
                                                  // params: {
@@ -1278,11 +1308,13 @@ Ext.define('Plani.view.main.Planillero', {
                                                  // jsonData:true,
                                                  //paramsAsJson:true,
                                                   success: function(response){
-                                                    Ext.Msg.show({
-                                                       title: 'CORRECTO'
-                                                      ,message: 'Se grabaron correctamente los cambios'
-                                                      ,buttons: Ext.Msg.OK
-                                                    });
+                                                    // Ext.Msg.show({
+                                                    //    title: 'CORRECTO'
+                                                    //   ,message: 'Se grabaron correctamente los cambios'
+                                                    //   ,buttons: Ext.Msg.OK
+                                                    // });
+                                                    console.log('grabo');
+
                                                   }
                                                   ,failure:function(form, action){
                                                     Ext.Msg.show({

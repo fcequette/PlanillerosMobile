@@ -4,7 +4,7 @@ Ext.define('Plani.store.Expulsados', {
 	//,model:'Torneo.model.Expulsado'
 	,proxy: {
 		 type: 'ajax'
-	,url: 'http://dario-casa.sytes.net/api/expulsados'
+	,url: 'http://127.0.0.1:8080/expulsados'
 		//,url: 'https://api.myjson.com/bins/xtmp7'
 		,method: 'GET'
 	 	,reader: {
